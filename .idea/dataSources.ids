@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - employees@localhost" uuid="94e6f628-6e4f-40c3-8259-b0b4a94a0012">
+    <database-info product="MySQL" version="5.7.11" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="employees"/>
+      <table id="2" parent="1" name="departments"/>
+      <table id="3" parent="1" name="dept_emp"/>
+      <table id="4" parent="1" name="dept_manager"/>
+      <table id="5" parent="1" name="employees"/>
+      <table id="6" parent="1" name="salaries"/>
+      <table id="7" parent="1" name="titles"/>
+      <view id="8" parent="1" name="v">
+        <comment>VIEW</comment>
+      </view>
+      <column id="9" parent="2" name="dept_no">
+        <mandatory>1</mandatory>
+        <data-type>char(4)</data-type>
+      </column>
+      <column id="10" parent="2" name="dept_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <index id="11" parent="2" name="dept_name">
+        <columns>dept_name</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="12" parent="2" name="dept_name">
+        <columns>dept_name</columns>
+        <underlying-index>dept_name</underlying-index>
+      </key>
+      <key id="13" parent="2" name="PRIMARY">
+        <columns>dept_no</columns>
+        <primary>1</primary>
+      </key>
+      <column id="14" parent="3" name="emp_no">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="15" parent="3" name="dept_no">
+        <mandatory>1</mandatory>
+        <data-type>char(4)</data-type>
+      </column>
+      <column id="16" parent="3" name="from_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="17" parent="3" name="to_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <index id="18" parent="3" name="dept_no">
+        <columns>dept_no</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="19" parent="3" name="emp_no">
+        <columns>emp_no</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="20" parent="3" name="PRIMARY">
+        <columns>emp_no
+dept_no</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="21" parent="3" name="dept_emp_ibfk_1">
+        <columns>emp_no</columns>
+        <ref-key>~.employees.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="22" parent="3" name="dept_emp_ibfk_2">
+        <columns>dept_no</columns>
+        <ref-key>~.departments.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="23" parent="4" name="dept_no">
+        <mandatory>1</mandatory>
+        <data-type>char(4)</data-type>
+      </column>
+      <column id="24" parent="4" name="emp_no">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="25" parent="4" name="from_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="26" parent="4" name="to_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <index id="27" parent="4" name="dept_no">
+        <columns>dept_no</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="28" parent="4" name="emp_no">
+        <columns>emp_no</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="29" parent="4" name="PRIMARY">
+        <columns>emp_no
+dept_no</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="30" parent="4" name="dept_manager_ibfk_1">
+        <columns>emp_no</columns>
+        <ref-key>~.employees.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="31" parent="4" name="dept_manager_ibfk_2">
+        <columns>dept_no</columns>
+        <ref-key>~.departments.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="32" parent="5" name="emp_no">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="33" parent="5" name="birth_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="34" parent="5" name="first_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(14)</data-type>
+      </column>
+      <column id="35" parent="5" name="last_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="36" parent="5" name="gender">
+        <mandatory>1</mandatory>
+        <data-type>enum(&apos;M&apos;, &apos;F&apos;)</data-type>
+      </column>
+      <column id="37" parent="5" name="hire_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <key id="38" parent="5" name="PRIMARY">
+        <columns>emp_no</columns>
+        <primary>1</primary>
+      </key>
+      <column id="39" parent="6" name="emp_no">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="40" parent="6" name="salary">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="41" parent="6" name="from_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="42" parent="6" name="to_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <index id="43" parent="6" name="emp_no">
+        <columns>emp_no</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="44" parent="6" name="PRIMARY">
+        <columns>emp_no
+from_date</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="45" parent="6" name="salaries_ibfk_1">
+        <columns>emp_no</columns>
+        <ref-key>~.employees.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="46" parent="7" name="emp_no">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="47" parent="7" name="title">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="48" parent="7" name="from_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="49" parent="7" name="to_date">
+        <data-type>date</data-type>
+      </column>
+      <index id="50" parent="7" name="emp_no">
+        <columns>emp_no</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="51" parent="7" name="PRIMARY">
+        <columns>emp_no
+title
+from_date</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="52" parent="7" name="titles_ibfk_1">
+        <columns>emp_no</columns>
+        <ref-key>~.employees.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="53" parent="8" name="emp_no">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="54" parent="8" name="min(salary)">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="55" parent="8" name="max(salary)">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="56" parent="8" name="avg(salary)">
+        <data-type>decimal(14,4)</data-type>
+      </column>
+      <column id="57" parent="8" name="No of pay rises">
+        <mandatory>1</mandatory>
+        <data-type>bigint(21)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="58" parent="8" name="PayIncreaseSinceHired">
+        <data-type>bigint(12)</data-type>
+      </column>
+    </database-model>
+  </data-source>
+</component>
